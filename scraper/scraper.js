@@ -13,9 +13,14 @@ const scraper = async (url) => {
 		() => document.querySelector("#DealPrice").innerHTML
 	);
 
-	const brend = await page.evaluate(
-		() => document.querySelector("#DealPrice").innerHTML
+	const description = await page.evaluate(
+		() => console.log(document.querySelector("div.finePrint"))
+		// Array.from(
+		// 	document.querySelectorAll("div.finePrint li p")
+		// ).map((disc) => console.log(object))
 	);
+
+	console.log(description);
 
 	await browser.close();
 
