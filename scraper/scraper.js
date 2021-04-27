@@ -20,7 +20,7 @@ const scraper = async (url) => {
 		() => document.querySelector("#NumOfPayments").textContent
 	);
 	const imgUrl = await page.evaluate(
-		() => document.querySelector(".mainImage").src
+		() => document.querySelector("#mainImage").src
 	);
 
 	await browser.close();
@@ -40,13 +40,5 @@ const scraper = async (url) => {
 		numOfPaymentsArbic: undefined,
 	};
 };
-
-(async () => {
-	console.log(
-		await scraper(
-			"https://www.azrieli.com/o/bbb71506-ff57-490d-b530-9daaa1c0141e"
-		)
-	);
-})();
 
 module.exports = scraper;
