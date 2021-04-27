@@ -14,7 +14,7 @@ const scraper = async (url) => {
 	);
 
 	const brend = await page.evaluate(
-		() => document.querySelector("#DealPrice").innerHTML
+		() => document.querySelector(".finePrint").innerHTML
 	);
 
 	await browser.close();
