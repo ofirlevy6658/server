@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+const uniqid = require("uniqid");
 
 const scraper = async (url) => {
 	const browser = await puppeteer.launch({
@@ -22,12 +23,15 @@ const scraper = async (url) => {
 	const imgUrl = await page.evaluate(
 		() => document.querySelector("#mainImage").src
 	);
-	const text = await page.$eval(".finePrint", (uiElement) => {
+	const text = await page.$eval(".finePrint p", (uiElement) => {
 		return uiElement.innerHTML;
 	});
-	console.log(text);
+	// console.log(text);
+	// text.map((el) => {
+	// 	console.log(el);
+	// });
 
-	await browser.close();
+	// await browser.close();
 
 	return {
 		url,
@@ -42,6 +46,7 @@ const scraper = async (url) => {
 		numOfPaymentsRussian: undefined,
 		numOfPaymentsFrance: undefined,
 		numOfPaymentsArbic: undefined,
+		id: uniqid(),
 	};
 };
 
