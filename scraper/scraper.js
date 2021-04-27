@@ -39,3 +39,5 @@ const scraper = async (url) => {
 		)
 	);
 })();
+
+module.exports = scraper;
