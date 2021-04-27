@@ -14,15 +14,16 @@ const scraper = async (url) => {
 	const price = await page.evaluate(
 		() => document.querySelector("#DealPrice").innerHTML
 	);
-
-	const description = await page.evaluate(
-		() => console.log(document.querySelector("div.finePrint"))
-		// Array.from(
-		// 	document.querySelectorAll("div.finePrint li p")
-		// ).map((disc) => console.log(object))
+	const d = await page.evaluate(
+		() => document.querySelectorAll(".finePrint p").innerHTML
 	);
-
-	console.log(description);
+	console.log(d);
+	// const description = await page.evaluate(
+	// 	() => console.log(document.querySelector("div.finePrint"))
+	// 	// Array.from(
+	// 	// 	document.querySelectorAll("div.finePrint li p")
+	// 	// ).map((disc) => console.log(object))
+	// );
 
 	await browser.close();
 
