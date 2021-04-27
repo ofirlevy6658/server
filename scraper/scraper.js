@@ -22,6 +22,10 @@ const scraper = async (url) => {
 	const imgUrl = await page.evaluate(
 		() => document.querySelector("#mainImage").src
 	);
+	const text = await page.$eval(".finePrint", (uiElement) => {
+		return uiElement.innerHTML;
+	});
+	console.log(text);
 
 	await browser.close();
 
