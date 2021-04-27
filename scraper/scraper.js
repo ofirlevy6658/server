@@ -1,4 +1,3 @@
-const { default: axios } = require("axios");
 const puppeteer = require("puppeteer");
 
 const scraper = async (url) => {

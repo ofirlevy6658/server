@@ -3,7 +3,7 @@ const Scraper = require("../scraper/scraper");
 const router = new express.Router();
 
 // the client send in get body {"url":"exe.com"}
-router.get("/api/product", async (req, res) => {
+router.post("/api/product", async (req, res) => {
 	try {
 		const url = req.body.url;
 		if (!url) throw new Error("bad request url parameter is missing");

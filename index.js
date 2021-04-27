@@ -7,7 +7,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use(productRouter);
-app.use("/", (req, res) => res.send("Application"));
 
 const PORT = process.env.PORT || 5000;
 
