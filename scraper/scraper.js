@@ -23,13 +23,9 @@ const scraper = async (url) => {
 	const imgUrl = await page.evaluate(
 		() => document.querySelector("#mainImage").src
 	);
-	const text = await page.$eval(".finePrint p", (uiElement) => {
-		return uiElement.innerHTML;
+	const description = await page.$eval(".finePrint", (uiElement) => {
+		return uiElement.textContent;
 	});
-	// console.log(text);
-	// text.map((el) => {
-	// 	console.log(el);
-	// });
 
 	// await browser.close();
 
@@ -38,6 +34,7 @@ const scraper = async (url) => {
 		title,
 		price,
 		imgUrl,
+		description,
 		isTransalated: false,
 		titleRussian: undefined,
 		titleFrance: undefined,
