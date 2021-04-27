@@ -25,7 +25,7 @@ router
 		}
 	})
 	.get("/api/product/:id", async (req, res) => {
-		const { id } = req.body;
+		const { id } = req.params;
 		try {
 			const product = await controller.getProductById(id);
 			res.status(201).send(product);
@@ -34,7 +34,7 @@ router
 		}
 	})
 	.delete("/api/product/:id", async (req, res) => {
-		const { id } = req.body;
+		const { id } = req.params;
 		try {
 			const product = await controller.deleteProduct(id);
 			res.status(201).send(product);
