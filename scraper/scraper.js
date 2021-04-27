@@ -26,6 +26,7 @@ const scraper = async (url) => {
 		url,
 		title,
 		price,
+		isTransalated: false,
 		titleRussian: undefined,
 		titleFrance: undefined,
 		titleArbic: undefined,
