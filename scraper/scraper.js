@@ -4,6 +4,7 @@ const scraper = async (url) => {
 	const browser = await puppeteer.launch({
 		args: ["--no-sandbox", "--disable-setuid-sandbox"],
 	});
+
 	const page = await browser.newPage();
 	await page.goto(url);
 
@@ -18,6 +19,9 @@ const scraper = async (url) => {
 	const NumOfPayments = await page.evaluate(
 		() => document.querySelector("#NumOfPayments").textContent
 	);
+	const imgUrl = await page.evaluate(
+		() => document.querySelector(".mainImage").src
+	);
 
 	await browser.close();
 
@@ -25,6 +29,7 @@ const scraper = async (url) => {
 		url,
 		title,
 		price,
+		imgUrl,
 		isTransalated: false,
 		titleRussian: undefined,
 		titleFrance: undefined,
