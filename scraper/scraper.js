@@ -1,3 +1,4 @@
+const { default: axios } = require("axios");
 const puppeteer = require("puppeteer");
 
 const scraper = async (url) => {
@@ -15,14 +16,9 @@ const scraper = async (url) => {
 		() => document.querySelector("#DealPrice").innerHTML
 	);
 
-	const description = await page.evaluate(
-		() => console.log(document.querySelector("div.finePrint"))
-		// Array.from(
-		// 	document.querySelectorAll("div.finePrint li p")
-		// ).map((disc) => console.log(object))
+	const NumOfPayments = await page.evaluate(
+		() => document.querySelector("#NumOfPayments").textContent
 	);
-
-	console.log(description);
 
 	await browser.close();
 
@@ -33,16 +29,17 @@ const scraper = async (url) => {
 		titleRussian: undefined,
 		titleFrance: undefined,
 		titleArbic: undefined,
-		descriptionRussian: undefined,
-		descriptionFrance: undefined,
-		descriptionArbic: undefined,
+		numOfPayments: NumOfPayments.trim(),
+		numOfPaymentsRussian: undefined,
+		numOfPaymentsFrance: undefined,
+		numOfPaymentsArbic: undefined,
 	};
 };
 
 (async () => {
 	console.log(
 		await scraper(
-			"https://www.azrieli.com/o/125621e9-4da0-47c9-8992-6e0fdc1c2169"
+			"https://www.azrieli.com/o/bbb71506-ff57-490d-b530-9daaa1c0141e"
 		)
 	);
 })();
