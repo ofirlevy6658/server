@@ -1,5 +1,4 @@
 const AWS = require("aws-sdk");
-require("dotenv").config();
 
 AWS.config.update({
 	region: "eu-west-2",
