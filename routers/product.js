@@ -3,7 +3,6 @@ const Scraper = require("../scraper/scraper");
 const controller = require("../shema/dynamo");
 const router = new express.Router();
 
-// the client send in get body {"url":"exe.com"}
 router
 	.post("/api/product", async (req, res) => {
 		try {
